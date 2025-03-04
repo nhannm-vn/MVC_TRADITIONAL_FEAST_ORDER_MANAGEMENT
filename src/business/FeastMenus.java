@@ -75,7 +75,7 @@ public class FeastMenus {
     
     // sort tăng dần dựa vào price
     public ArrayList<FeastMenu> sortAscendingByPrice(ArrayList<FeastMenu> menuList ) {
-        // clone
+        // clone thì phải bỏ cái param vào trong lúc tạo mảng phụ
         ArrayList<FeastMenu> sortList = new ArrayList<>(menuList);
         // Sắp xếp danh sách dựa vào price
         // Tạo anh sắp xếp
@@ -89,7 +89,7 @@ public class FeastMenus {
         Collections.sort(sortList, orderByPrice);
         return sortList;
     }
-    
+    // ** Mục đích là mình không muốn cái danh sách bị sắp xếp cưng nên sẽ làm như vậy
     // display
     public void displayFeastMenus(ArrayList<FeastMenu> menuList) {
          ArrayList<FeastMenu> tmp = new ArrayList<>(menuList);
@@ -103,8 +103,11 @@ public class FeastMenus {
         for (FeastMenu fm : tmp) {
             // Chặt ra riêng các món ăn để hiển thị cho đẹp
             StringTokenizer st = new StringTokenizer(fm.getIngredients(), "#");
+            // Cắt ra được đoạn đầu nhưng lấy bỏ dấu # nên thêm substring
             String appetizer = st.nextToken().trim().substring(1);
+            
             String mainCourse = st.nextToken().trim();
+            
             String desert = st.nextToken().trim();
             String updateDesrt = desert.substring(0, desert.length() - 1);
             // ----------------------------------------------------------

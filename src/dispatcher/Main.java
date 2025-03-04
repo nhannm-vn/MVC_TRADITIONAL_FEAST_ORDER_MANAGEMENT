@@ -77,6 +77,7 @@ public class Main {
                 }
                 case 4: {
                     // Sắp xếp danh sách
+                    // Lưu ý clone cần bỏ danh sách vào ()
                     ArrayList<FeastMenu> tempList = feastManage.sortAscendingByPrice(feastManage.feastMenuList);
                     // Hiển thị ra 
                     feastManage.displayFeastMenus(tempList);
