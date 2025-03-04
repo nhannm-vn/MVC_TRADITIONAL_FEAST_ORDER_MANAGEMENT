@@ -264,8 +264,11 @@ public class Orders {
                 LocalDate inputDate = LocalDate.parse(eventDate, formatter);
                 // Lấy ngày hiện tại
                 LocalDate currentDate = LocalDate.now();
+                
                 // Check xem ngày vừa nhập có nằm trong quá khứ hay không
-                if (inputDate.isAfter(currentDate)) {
+                //đồng thời cũng time cũng phải after so với thời gian bữa tiệc cũ
+                LocalDate objDate = LocalDate.parse(orderFind.getEventDate(), formatter);
+                if (inputDate.isAfter(currentDate) && inputDate.isAfter(objDate)) {
                     isCheck = true;
                 } else {
                     System.out.println("Don't provide event date in the past");
