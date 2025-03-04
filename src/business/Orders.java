@@ -265,7 +265,6 @@ public class Orders {
                 // Lấy ngày hiện tại
                 LocalDate currentDate = LocalDate.now();
                 // Check xem ngày vừa nhập có nằm trong quá khứ hay không
-                //và đồng thời cũng không được trễ hơn thời gian đặt tiệc cũ
                 if (inputDate.isAfter(currentDate)) {
                     isCheck = true;
                 } else {

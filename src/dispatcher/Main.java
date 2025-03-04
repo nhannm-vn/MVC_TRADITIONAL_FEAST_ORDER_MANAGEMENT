@@ -89,6 +89,7 @@ public class Main {
                     String key;
                     do {
                         isContinute = false;
+                        // Nhận vào 2 anh quản lí để có thể sử dụng 2 mảng của 2 ảnh
                         orderManage.setMenu(customerManage, feastManage);
                         // Hỏi xem có muốn đặt tiếp không
                         key = Inputter.getString("Do you want continute place a feast order [Y/N]: ",

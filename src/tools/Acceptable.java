@@ -9,6 +9,7 @@ public interface Acceptable {
     public final String EMAIL_VALID = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
     public final String MENU_ID_VALID = "^.{5}$";
     public final String DATE_EVENT = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
+    // 1 đến 9 hoặc 1 đến 9 kèm theo bao nhiêu có hay không cũng được
     public final String NUM_OF_TABLE = "^[1-9]\\d*$";
     public final String ORDER_ID = "^[1-9]\\d*$";
     // nghĩa là số nào cũng được từ 1 trở lên
