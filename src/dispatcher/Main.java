@@ -52,7 +52,19 @@ public class Main {
             // ----------------------
             switch (choice) {
                 case 1: {
-                    customerManage.addNewCustomer();
+                    // Kiến trúc sau khi add rồi thì hỏi có muốn add tiếp không
+                    boolean isContinute = false;
+                    String key;
+                    do {
+                        isContinute = false;
+                        customerManage.addNewCustomer();
+                        // Hỏi xem có muốn đặt tiếp không
+                        key = Inputter.getString("Do you want continute add new customer [Y/N]: ",
+                                "Data-invalid, re-render...", "^\\D{1}$");
+                        if (!key.matches("^[Y]y$")) {
+                            isContinute = true;
+                        }
+                    } while (!isContinute);
                     break;
                 }
                 case 2: {

@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 import model.Customer;
 import tools.Acceptable;
@@ -55,7 +57,7 @@ public class Customers {
                                 Acceptable.PHONE_VALID);
         
         // Check valid email
-        String email = Inputter.getString("Input phone email: ", 
+        String email = Inputter.getString("Input email: ", 
                                 "Data is invalid !. Re-enter ..." ,
                                 Acceptable.EMAIL_VALID);
         // Tạo ra object
@@ -126,6 +128,18 @@ public class Customers {
         if(searchList.isEmpty()){
             System.out.println("No one matches the search criteria!");
         }else{
+            // Sắp xếp dựa vào tên trước rồi mới in ra màn hình
+            Comparator orderByLastName = new Comparator<Customer>() {
+                @Override
+                public int compare(Customer o1, Customer o2) {
+                   // Tim ra 2 last name truoc
+                    String lastName1 = o1.getName().substring(o1.getName().lastIndexOf(" ") + 1);
+                    String lastName2 = o2.getName().substring(o2.getName().lastIndexOf(" ") + 1);
+                    return lastName1.compareTo(lastName2);
+                }
+            };
+            // Sap xep
+            Collections.sort(searchList, orderByLastName);
             // Show thông tin
             System.out.println("----------------------------------------------------------------------------");
             System.out.println("Code            |   Customer Name       |     Phone         |     Email");
